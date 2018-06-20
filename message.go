@@ -2,27 +2,28 @@ package util
 
 import "github.com/russross/blackfriday"
 
-// a wrapper fo printValue to use strings and not string pointers
-func printValueStr(message string, length int) string {
-	return printValue(&message, length)
+// PrintValueStr a wrapper fo printValue to use strings and not string pointers
+func PrintValueStr(message string, length int) string {
+	return PrintValue(&message, length)
 }
 
-// this function will add spaces to a string, until the length of the string is like we need it
+// PrintValue this function will add spaces to a string, until the length of the string is like we need it
 // thats useful to make the output more pretty
-func printValue(message *string, length int) string {
+func PrintValue(message *string, length int) string {
 	if message != nil {
 		if len(*message) < length {
 			*message = *message + " "
-			return printValue(message, length)
+			return PrintValue(message, length)
 		}
 	} else {
 		newMsg := " "
-		return printValue(&newMsg, length)
+		return PrintValue(&newMsg, length)
 	}
 	return *message
 }
 
-func markdownRender(content string) string {
+// MarkdownRender will render a markdown text to html
+func MarkdownRender(content string) string {
 	htmlFlags := 0
 	htmlFlags |= blackfriday.HTML_USE_SMARTYPANTS
 	htmlFlags |= blackfriday.HTML_SMARTYPANTS_FRACTIONS
