@@ -9,7 +9,13 @@ import (
 )
 
 // SetLogging sets the loglevel and text formating
-func SetLogging(level logrus.Level, enableSyslog bool, name string) {
+func SetLogging(logLevel string, enableSyslog bool, name string) {
+
+	level, err := logrus.ParseLevel(logLevel)
+	if err != nil {
+		return
+	}
+
 	logrus.SetFormatter(&prefixed.TextFormatter{
 		ForceColors: true,
 	})
