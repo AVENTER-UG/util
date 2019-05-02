@@ -5,6 +5,7 @@ import (
 	"os"
 )
 
+// CopyFile will copy the file to a other destination
 func CopyFile(from, to string) error {
 	r, err := os.Open(from)
 	if err != nil {
@@ -27,8 +28,9 @@ func CopyFile(from, to string) error {
 	return err
 }
 
+// MoveFile will move the file to a other destination
 func MoveFile(from, to string) error {
 	err := CopyFile(from, to)
-	os.Remove(filename)
+	os.Remove(from)
 }
 
