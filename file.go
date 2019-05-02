@@ -3,6 +3,8 @@ package util
 import (
 	"io"
 	"os"
+	"crypto/sha256"
+	"encoding/hex"
 )
 
 // CopyFile will copy the file to a other destination
