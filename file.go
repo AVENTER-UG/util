@@ -36,3 +36,19 @@ func MoveFile(from, to string) error {
 	return err
 }
 
+// GetFileHash return a sha256 hashvalue of a file
+func GetFileHash(filePath string) (string, error) {
+	f, err := os.Open(filePath)
+	if err != nil {
+		return "", err
+	}
+	defer f.Close()
+
+	hasher := sha256.New()
+
+	if _, err := io.Copy(hasher, f); err != nil {
+		return "", err
+	}
+
+	return hex.EncodeToString(hasher.Sum(nil)), nil
+}
