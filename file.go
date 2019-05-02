@@ -31,6 +31,8 @@ func CopyFile(from, to string) error {
 // MoveFile will move the file to a other destination
 func MoveFile(from, to string) error {
 	err := CopyFile(from, to)
-	os.Remove(from)
+	err = os.Remove(from)
+
+	return err
 }
 
