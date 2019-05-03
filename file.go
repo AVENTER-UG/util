@@ -57,12 +57,17 @@ func GetFileHash(filePath string) (string, error) {
 }
 
 // GetFileContentType give out the mimetype of a file
-func GetFileContentType(out *os.File) (string, error) {
+func GetFileContentType(filePath string) (string, error) {
+	f, err := os.Open(filePath)
+	if err != nil {
+		return "", err
+	}
+	defer f.Close()
 
     // Only the first 512 bytes are used to sniff the content type.
     buffer := make([]byte, 512)
 
-    _, err := out.Read(buffer)
+    _, err := f.Read(buffer)
     if err != nil {
         return "", err
     }
