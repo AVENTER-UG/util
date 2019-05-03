@@ -6,6 +6,7 @@ import (
 	"encoding/hex"
 )
 
+// GetRandomByte generate a random number
 func GenerateRandomBytes(n int) ([]byte, error) {
 	b := make([]byte, n)
 	_, err := rand.Read(b)
@@ -15,6 +16,7 @@ func GenerateRandomBytes(n int) ([]byte, error) {
 	return b, nil
 }
 
+// GetRandomString generate a random string with the size of nBytes
 func GenerateRandomString(nBytes int) (string, error) {
 	b, err := GenerateRandomBytes(nBytes)
 	if err != nil {
