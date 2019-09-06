@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-func genUUID() (string, error) {
+func GenUUID() (string, error) {
 	b := make([]byte, 16)
 	_, err := rand.Read(b)
 
