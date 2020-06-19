@@ -2,10 +2,10 @@ package util
 
 import "strings"
 
-// splitString will split a string or give just one value back
+// SplitString will split a string or give just one value back
 // src 	  = the string to split
 // return = array of all strings
-func splitString(src string) []string {
+func SplitString(src string) []string {
 	var des []string
 	if strings.Contains(src, ",") {
 		des = strings.Split(src, ",")
