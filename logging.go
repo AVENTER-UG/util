@@ -3,7 +3,7 @@ package util
 import (
 	"log/syslog"
 
-	prefixed "aventer.biz/AVENTER-UG/go-logrus-formatter"
+	prefixed "github.com/AVENTER-UG/go-logrus-formatter"
 	"github.com/sirupsen/logrus"
 	logrusSyslog "github.com/sirupsen/logrus/hooks/syslog"
 )
