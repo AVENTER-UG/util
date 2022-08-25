@@ -25,7 +25,7 @@ func Getenv(key, fallback string) string {
 		v := vault.New(VaultToken, VaultURL, VaultTimeout)
 		if VaultToken != "" {
 			logrus.WithField("func", "util.Getenv").Debug("Connect Vault: ", v.Connect())
-			value = v.GetKey(value)
+			return v.GetKey(value)
 		}
 	}
 
