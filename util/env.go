@@ -6,6 +6,7 @@ import (
 	"time"
 
 	"github.com/AVENTER-UG/util/vault"
+	"github.com/sirupsen/logrus"
 )
 
 // Getenv with default value
@@ -23,7 +24,7 @@ func Getenv(key, fallback string) string {
 
 		v := vault.New(VaultToken, VaultURL, VaultTimeout)
 		if VaultToken != "" {
-			v.Connect()
+			logrus.WithField("func", "util.Getenv").Debug("Connect Vault: ", v.Connect())
 			value = v.GetKey(value)
 		}
 	}
