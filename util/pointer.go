@@ -15,3 +15,7 @@ func Uint64ToPointer(value uint64) *uint64 {
 func IntToPointer(value int) *int {
 	return func() *int { x := value; return &x }()
 }
+
+func BoolToPointer(value bool) *bool {
+	return func() *bool { x := value; return &x }()
+}
